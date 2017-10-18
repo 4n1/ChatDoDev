@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>ChatDo</title>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+    <!--if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    -->
+</head>
+
+<body class="sidebar-mini fixed">
+    <div class="wrapper">
+        <!-- Navbar-->
+        <header class="main-header hidden-print"><a class="logo" href="#"></a>
+            <nav class="navbar navbar-static-top">
+                <!-- Navbar Right Menu-->
+                <div class="navbar-custom-menu">
+                    <ul class="top-nav">
+                        <!--Notification Menu-->
+                        <li class="dropdown notification-menu"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell-o fa-lg"></i></a>
+                            <ul class="dropdown-menu">
+                                <li class="not-head">新着通知が3件あります。</li>
+                                <li><a class="media" href="javascript:;"><span class="media-left media-icon"><span class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x text-primary"></i><i class="fa fa-comment fa-stack-1x fa-inverse"></i></span></span>
+                                <div class="media-body"><span class="block">佐藤孝からあたらしいメッセージが届きました。</span><span class="text-muted block">2分前</span></div></a></li>
+                                <li><a class="media" href="javascript:;"><span class="media-left media-icon"><span class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x text-danger"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></span>
+                                <div class="media-body"><span class="block">技術グループに新しい書き込みがありました。</span><span class="text-muted block">2分前</span></div></a></li>
+                                <li><a class="media" href="javascript:;"><span class="media-left media-icon"><span class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x text-success"></i><i class="fa fa-user-plus fa-stack-1x fa-inverse"></i></span></span>
+                                <div class="media-body"><span class="block">佐藤愛さんがあなたをAチームに追加しました。</span><span class="text-muted block">2分前</span></div></a></li>
+                                <li class="not-footer"><a href="#">すべての通知を既読にする。</a></li>
+                            </ul>
+                        </li>
+                        <!-- User Menu-->
+                        <li class="dropdown top-nav-user"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-lg"></i><span>鈴木太郎</span></a>
+                            <ul class="dropdown-menu settings-menu">
+                                <li><a href="#"><i class="fa fa-user fa-lg"></i> プロフィール編集</a></li>
+                                <li><a href="#"><i class="fa fa-sign-out fa-lg"></i> ログアウト</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Side-Nav-->
+        <aside class="main-sidebar hidden-print">
+            <section class="sidebar">
+                <!-- Sidebar Menu-->
+                <ul class="sidebar-menu">
+                    <li>
+                        <form class="navbar-form" role="search">
+                            <div class="form-group">
+                                <i class="fa fa-search fa-lg"></i>
+                                <input type="text" class="form-control" placeholder="検索">
+                            </div>
+                            <!--  <button type="submit" class="btn btn-default"><i class="fa fa-search fa-lg"></i></button> -->
+                        </form>
+                    </li>
+                    <li class="treeview active"><a href="#"><i class="fa fa-thumb-tack"></i><span>いつも使う相手</span><i class="fa fa-angle-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle"><span class="bot-label">B</span> 会議室予約</a></li>
+                            <li><a href="#"><img src="images/user_ai.jpg" alt="" class="img-circle"> 佐藤愛</a></li>
+                            <li><a href="#"><img src="images/user.png" alt=""> マーケティングチーム</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview"><a href="#"><i class="fa fa-user-circle-o"></i><span>ユーザー</span><i class="fa fa-angle-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle"> ユーザーA</a></li>
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle"> ユーザーB</a></li>
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle">山田二郎</a></li>
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle">山田花子</a></li>
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle">佐藤健二</a></li>
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle">木村好子</a></li>
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle">佐藤亜紀</a></li>
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle">佐々木二郎</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview"><a href="#"><i class="fa fa-users"></i><span>グループ</span><i class="fa fa-angle-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="#"><img src="images/user.png" alt=""> Aチーム</a></li>
+                            <li><a href="#"><img src="images/user.png" alt=""> Bチーム</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview"><a href="#"><i class="fa fa-comments-o"></i><span>Bot</span><i class="fa fa-angle-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle"><span class="bot-label">B</span> 会議室予約</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            <div class="page-title">
+                <div>
+                    <img src="images/user_ai.jpg" alt="" class="pull-left img-circle">
+                    <div class="pull-left">
+                        <h1>佐藤愛</h1>
+                        <span>aisato</span>
+                    </div>
+                    <i class="fa fa-thumb-tack pull-left"></i>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="card chat-main">
+                        <div class="messanger">
+                            <div class="messages">
+                                <time class="messages-date text-center"><span>2017.10.15(土)</span></time>
+
+                                <div class="message">
+                                    <div class="message-thumb">
+                                        <img src="images/user_ai.jpg" class="img-circle">
+                                    </div>
+                                    <div class="chat-column">
+                                        <div>
+                                            <span class=pull-left>佐藤愛</span>
+                                            <time class="pull-right">12:00</time>
+                                        </div>
+                                        <p class="info">お疲れ様です。先日お願いしていた書類が、未だ提出せれておりません。受付〆切が明日なので早めにいただければ幸いです。</p>
+                                    </div>
+                                </div>
+                                <div class="message me">
+                                    <div class="message-thumb">
+                                        <img src="images/user_taro.jpg" class="img-circle">
+                                    </div>
+                                    <div class="chat-column">
+                                        <div>
+                                            <time class="pull-right">12:00</time>
+                                        </div>
+                                        <p class="info">申し訳ありません<br>今日中に提出します！</p>
+                                    </div>
+                                </div>
+
+                                <div class="message">
+                                    <div class="message-thumb">
+                                        <img src="images/user_ai.jpg" class="img-circle">
+                                    </div>
+                                    <div class="chat-column">
+                                        <div>
+                                            <span class=pull-left>佐藤愛</span>
+                                            <time class="pull-right">12:00</time>
+                                        </div>
+                                        <p class="info">承知しました。念のため再度書類をお送りします。</p>
+                                    </div>
+                                </div>
+                                <!-- message -->
+
+                                <div class="message">
+                                    <div class="message-thumb">
+                                        <!-- <img src="images/user_ai.jpg" class="img-circle"> -->
+                                    </div>
+                                    <div class="chat-column">
+                                        <div>
+                                            <span class=pull-left>佐藤愛</span>
+                                            <time class="pull-right">12:00</time>
+                                        </div>
+                                        <p class="info">佐藤愛がデータを送信しました。<br>提出書類.xls<br><i class="fa fa-download" aria-hidden="true"></i>
+                                            <a href="">ダウンロードする</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- message -->
+
+                                <div class="message me"><img src="images/user_taro.jpg" class="img-circle">
+                                    <div class="chat-column">
+                                        <div>
+                                            <time class="pull-right">12:00</time>
+                                        </div>
+                                        <p class="info">鈴木太郎が画像を送信しました。<br>
+                                            <img src="images/user.png" alt=""><br> 提出書類_鈴木太郎.xls
+                                            <br><i class="fa fa-download" aria-hidden="true"></i><a href="">ダウンロードする。</a></p>
+                                    </div>
+                                </div>
+                                <!-- message -->
+                            </div>
+                            <!-- messages -->
+                        </div>
+                        <!-- messager -->
+
+                        <div class="sender">
+                            <form action="" method="" accept-charset="utf-8">
+                                <div class="sender-utility clearfix">
+                                    <ul class="pull-left">
+                                        <li><img src="images/chat_to_icon.svg" alt=""></li>
+                                        <li><i class="fa fa-smile-o fa-fw" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-picture-o fa-fw" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-paperclip fa-fw" aria-hidden="true"></i></li>
+                                    </ul>
+                                    <span class="upload-file-name">証明写真.jpg</span>
+                                    <button class="btn btn-primary pull-right" type="button"><i class="fa fa-lg fa-paper-plane"></i></button>
+                                    <label class="pull-right enter-confirm"><input type="checkbox" name=""> Enterで送信</label>
+                                </div>
+                                <textarea placeholder="ここにメッセージ内容を入力"></textarea>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- col-md-9 -->
+                <div class="col-md-3">
+                    <div class="card">
+                        <h3 class="card-title">メンバー</h3>
+                        <div class="card-body">
+                            <div class="member-box clearfix">
+                                <img src="images/user_taro.jpg" alt="" class="img-circle pull-left">
+                                <div class="pull-left">
+                                    <p>鈴木太郎</p>
+                                    <span>tarosuzuki</span>
+                                </div>
+                            </div>
+                            <div class="member-box clearfix">
+                                <img src="images/user_ai.jpg" alt="" class="img-circle pull-left">
+                                <div class="pull-left">
+                                    <p>佐藤愛</p>
+                                    <span>aisato</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Javascripts-->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/pace.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

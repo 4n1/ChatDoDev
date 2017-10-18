@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>ChatDo</title>
+    <title>ChatDoDev</title>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!--if lt IE 9
     script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
@@ -59,22 +59,32 @@
                         <form class="navbar-form" role="search">
                             <div class="form-group">
                                 <i class="fa fa-search fa-lg"></i>
-                                <input type="text" class="form-control" placeholder="検索">
+                                <input id="txtSearch" type="text" class="form-control" placeholder="検索">
                             </div>
                             <!--  <button type="submit" class="btn btn-default"><i class="fa fa-search fa-lg"></i></button> -->
                         </form>
                     </li>
-                    <li class="treeview active"><a href="#"><i class="fa fa-thumb-tack"></i><span>いつも使う相手</span><i class="fa fa-angle-right"></i></a>
+                    <li class="treeview active">
+                        <a href="#">
+                            <i class="fa fa-thumb-tack"></i>
+                            <span>いつも使う相手</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
                         <ul class="treeview-menu">
                             <li><a href="#"><img src="images/user.png" alt="" class="img-circle"><span class="bot-label">B</span> 会議室予約</a></li>
                             <li><a href="#"><img src="images/user_ai.jpg" alt="" class="img-circle"> 佐藤愛</a></li>
                             <li><a href="#"><img src="images/user.png" alt=""> マーケティングチーム</a></li>
                         </ul>
                     </li>
-                    <li class="treeview"><a href="#"><i class="fa fa-user-circle-o"></i><span>ユーザー</span><i class="fa fa-angle-right"></i></a>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-user-circle-o"></i>
+                            <span>ユーザー</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
                         <ul class="treeview-menu">
-                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle"> ユーザーA</a></li>
-                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle"> ユーザーB</a></li>
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle">ユーザーA</a></li>
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle">ユーザーB</a></li>
                             <li><a href="#"><img src="images/user.png" alt="" class="img-circle">山田二郎</a></li>
                             <li><a href="#"><img src="images/user.png" alt="" class="img-circle">山田花子</a></li>
                             <li><a href="#"><img src="images/user.png" alt="" class="img-circle">佐藤健二</a></li>
@@ -83,13 +93,23 @@
                             <li><a href="#"><img src="images/user.png" alt="" class="img-circle">佐々木二郎</a></li>
                         </ul>
                     </li>
-                    <li class="treeview"><a href="#"><i class="fa fa-users"></i><span>グループ</span><i class="fa fa-angle-right"></i></a>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-users"></i>
+                            <span>グループ</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
                         <ul class="treeview-menu">
                             <li><a href="#"><img src="images/user.png" alt=""> Aチーム</a></li>
                             <li><a href="#"><img src="images/user.png" alt=""> Bチーム</a></li>
                         </ul>
                     </li>
-                    <li class="treeview"><a href="#"><i class="fa fa-comments-o"></i><span>Bot</span><i class="fa fa-angle-right"></i></a>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-comments-o"></i>
+                            <span>Bot</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
                         <ul class="treeview-menu">
                             <li><a href="#"><img src="images/user.png" alt="" class="img-circle"><span class="bot-label">B</span> 会議室予約</a></li>
                         </ul>
@@ -229,7 +249,7 @@
         </div>
     </div>
     <!-- Javascripts-->
-    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery-3.2.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins/pace.min.js"></script>
     <script src="js/main.js"></script>

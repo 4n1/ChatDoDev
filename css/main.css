@@ -15806,3 +15806,35 @@ be a descendant of the grid when it is being dragged.
   border-radius: 3px;
   box-shadow: none;
 }
+
+/******************************************** CAC追加分 ******************************************/
+/*グレーアウトのスタイル定義*/
+#gray{
+ background:#000;
+ opacity:0.8;
+ width:100%;
+ height:100%;
+ position:fixed;
+ top:0;
+ left:0;
+ display:none;
+ z-index:500;
+}
+
+/*ポップアップ部分のスタイル定義*/
+#square{
+ display:block;
+ width:490px;
+ height:510px;
+ z-index:510;
+ background-color:#fff;
+ overflow:hidden;
+}
+
+#popup{
+ display:block;
+ width:490px;
+ height:510px;
+ overflow:hidden;
+ border:none;
+}

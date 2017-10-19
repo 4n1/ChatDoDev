@@ -179,8 +179,8 @@ $(function () {
 		});
 	};
 
-	// searchWordの実行
-	$("#txtSearch").on("keyup", searchWord);
+	// searchWordの実行(オートコンプリートにも対応させるためinputイベントにしている)
+	$("#txtSearch").on("input", searchWord);
 });
 
 

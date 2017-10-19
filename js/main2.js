@@ -183,7 +183,38 @@ $(function () {
 	$("#txtSearch").on("input", searchWord);
 });
 
+$(function () {
+	$("#btnSend").click(function () {
+		// Todo: Ajaxで取得したjsonを使用するように変更する。
+		var obj = {
+			time: "2017/10/19 17:00:00",
+			message: "テストメッセージ"
+		};
 
+		var $divMessage = $("<div>");
+		$divMessage.addClass("message me");
+
+		var $divMessageThumb = $("<div>");
+		$divMessageThumb.addClass("message-thumb");
+		$divMessageThumb.append('<img src="images/user_taro.jpg" class="img-circle">');
+		$divMessageThumb.append("</div>");
+		$divMessage.append($divMessageThumb);
+
+		var $divMessageChat = $("<div>");
+		$divMessageChat.addClass("chat-column");
+		$divMessageChat.append("<div>");
+		$divMessageChat.append('<time class="pull-right">' + obj.time + '</time>');
+		$divMessageChat.append("</div>");
+		$divMessageChat.append('<p class="info">' + obj.message + '</p>');
+		$divMessageChat.append("</div>");
+		$divMessage.append($divMessageChat);
+
+		var $divMessageEnd = $("</div>");
+		$divMessage.append($divMessageEnd);
+
+		$("#messages").append($divMessage);
+	});
+});
 
 
 

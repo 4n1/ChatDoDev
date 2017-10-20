@@ -353,7 +353,7 @@ $(function () {
 		// Todo: メッセージの入力チェック
 		// Todo: テスト用
 		var obj = {
-			time: "17:00:00",
+			time: "17:00",
 		};
 
 		// Todo: 別functionにして汎用化させる。

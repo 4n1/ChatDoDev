@@ -382,7 +382,130 @@ $(function () {
 
 		$("#messages").append($divMessage);
 
-		// Todo: サーバへメッセージを送信する。
+		// Todo: サーバへメッセージを送信する。送信後に受信処理を追加する。
+		// Todo: サーバのステータスがエラーの場合、メインエリアに表示したメッセージは削除する。(メッセージをメインエリアに表示後、送信して、エラーの場合、メインエリアのメッセージを削除する。
 		// Todo: メッセージエリアを一番下までスクロールさせる。
 	});
 });
+
+
+
+
+
+// $(function () {
+// 	$("#btnUserEdit").click(function () {
+// 		$("<div />")
+// 			.load("userEdit.html #frmMain")
+// 			.dialog({
+// 				modal: true,
+// 				title: "プロファイル変更",
+// 				resizable: false,
+// 				width: 800,
+// 				height: 400
+// 			}).dialog("open");
+
+// 		// クリックして別窓表示という本来の動作をキャンセルする。
+// 		return false;
+// 	})
+// })
+
+
+// (function ($) {
+// 	// style
+// 	var bgStyle = 'display: none;' +
+// 		'width: 100%;' +
+// 		'height: 2000px;' +
+// 		'position: fixed;' +
+// 		'top: 0;' +
+// 		'left: 0;' +
+// 		'z-index: 9999;' +
+// 		'background: #333;';
+
+// 	var wrapStyle = 'display: none;' +
+// 		'width: 1000px;' +
+// 		'height:' + ($(window).height() * 0.9) + 'px;' +
+// 		'margin: 0 0 0 -500px;' +
+// 		'position: fixed;' +
+// 		'top: 40px;' +
+// 		'left: 50%;' +
+// 		'z-index: 9999;' +
+// 		'background: #fff;';
+
+// 	var btnStyle = 'display: none;' +
+// 		'width: 40px;' +
+// 		'height: 40px;' +
+// 		'position: fixed;' +
+// 		'top: 20px;' +
+// 		'right: 20px;' +
+// 		'z-index: 9999;' +
+// 		'background: #999;' +
+// 		'border-radius: 50%;' +
+// 		'cursor: pointer;' +
+// 		'line-height: 40px;' +
+// 		'text-align: center;' +
+// 		'color: #fff';
+
+// 	var html = '&lt;div id="iframe-bg" style="' + bgStyle + '"&gt;&lt;/div&gt;' +
+// 		'&lt;div id="iframe-wrap" style="' + wrapStyle + '"&gt;&lt;/div&gt;' +
+// 		'&lt;div id="iframe-btn" style="' + btnStyle + '"&gt;X&lt;/div&gt;';
+
+// 	// add element
+// 	$(html).appendTo('body');
+
+// 	// click event
+// 	$('.link a').click(function () {
+// 		var url = $(this).attr('href');
+
+// 		$('#iframe-wrap').html('&lt;iframe src="' + url + '" width="800" height="400"&gt;');
+// 		$('#iframe-bg').fadeTo('normal', 0.8);
+
+// 		$('#iframe-wrap iframe').load(function () {
+// 			$('#iframe-wrap').fadeIn();
+// 			$('#iframe-btn').fadeIn();
+// 		});
+
+// 		return false;
+// 	});
+
+// 	$('#iframe-btn').click(function () {
+// 		$('#iframe-bg, #iframe-btn, #iframe-wrap').fadeOut();
+// 	});
+
+// })(jQuery);
+
+
+// (function ($) {
+// 	$('#lnkUserEdit').click(function () {
+// 		var url = $(this).attr('href');
+
+// 		$('#iframe-wrap').html('&lt;iframe src="' + url + '" width="800" height="400"&gt;');
+// 		$('#iframe-bg').fadeTo('normal', 0.8);
+
+// 		$('#iframe-wrap iframe').load(function () {
+// 			// 呼び出し先のヘッダーとフッターを隠す
+// 			$(this).contents().find('#header, #footer').hide();
+
+// 			$('#iframe-wrap').fadeIn();
+// 			$('#iframe-btn').fadeIn();
+// 		});
+
+// 		return false;
+// 	});
+
+// })(jQuery);
+
+// (function ($) {
+	$('#btnPict').click(function () {
+		alert("Upload");
+
+		$("#refPict").upload(
+			'upload.html',
+			{ now: '2017/10/19' },
+			function (res) {
+				alert(res);
+			},
+			'text'
+		);
+	});
+// });
+

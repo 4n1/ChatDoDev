@@ -185,10 +185,9 @@ $(function () {
 
 $(function () {
 	$("#btnSend").click(function () {
-		// Todo: Ajaxで取得したjsonを使用するように変更する。
+		// Todo: テスト用
 		var obj = {
-			time: "2017/10/19 17:00:00",
-			message: "テストメッセージ"
+			time: "17:00:00",
 		};
 
 		var $divMessage = $("<div>");
@@ -205,7 +204,7 @@ $(function () {
 		$divMessageChat.append("<div>");
 		$divMessageChat.append('<time class="pull-right">' + obj.time + '</time>');
 		$divMessageChat.append("</div>");
-		$divMessageChat.append('<p class="info">' + obj.message + '</p>');
+		$divMessageChat.append('<p class="info">' + $("#msgContent").val() + '</p>');
 		$divMessageChat.append("</div>");
 		$divMessage.append($divMessageChat);
 
@@ -213,6 +212,9 @@ $(function () {
 		$divMessage.append($divMessageEnd);
 
 		$("#messages").append($divMessage);
+
+		// Todo: サーバへメッセージを送信する。
+		// Todo: メッセージエリアを一番下までスクロールさせる。
 	});
 });
 
@@ -303,22 +305,38 @@ $(function () {
 // })(jQuery);
 
 
-(function ($) {
-	$('#lnkUserEdit').click(function () {
-		var url = $(this).attr('href');
+// (function ($) {
+// 	$('#lnkUserEdit').click(function () {
+// 		var url = $(this).attr('href');
 
-		$('#iframe-wrap').html('&lt;iframe src="' + url + '" width="800" height="400"&gt;');
-		$('#iframe-bg').fadeTo('normal', 0.8);
+// 		$('#iframe-wrap').html('&lt;iframe src="' + url + '" width="800" height="400"&gt;');
+// 		$('#iframe-bg').fadeTo('normal', 0.8);
 
-		$('#iframe-wrap iframe').load(function () {
-			// 呼び出し先のヘッダーとフッターを隠す
-			$(this).contents().find('#header, #footer').hide();
+// 		$('#iframe-wrap iframe').load(function () {
+// 			// 呼び出し先のヘッダーとフッターを隠す
+// 			$(this).contents().find('#header, #footer').hide();
 
-			$('#iframe-wrap').fadeIn();
-			$('#iframe-btn').fadeIn();
-		});
+// 			$('#iframe-wrap').fadeIn();
+// 			$('#iframe-btn').fadeIn();
+// 		});
 
-		return false;
+// 		return false;
+// 	});
+
+// })(jQuery);
+
+// (function ($) {
+	$('#btnPict').click(function () {
+		alert("Upload");
+
+		$("#refPict").upload(
+			'upload.html',
+			{ now: '2017/10/19' },
+			function (res) {
+				alert(res);
+			},
+			'text'
+		);
 	});
+// });
 
-})(jQuery);

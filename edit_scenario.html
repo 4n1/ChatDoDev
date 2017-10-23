@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>ChatDo</title>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+    <!--if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    -->
+</head>
+
+<body class="sidebar-mini fixed manager">
+    <div class="wrapper">
+        <!-- Navbar-->
+        <header class="main-header hidden-print"><a class="logo" href="#"></a>
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button--><a class="sidebar-toggle" href="#" data-toggle="offcanvas"></a>
+                <!-- Navbar Right Menu-->
+                <div class="navbar-custom-menu">
+                    <ul class="top-nav">
+                        <!-- User Menu-->
+                        <li class="dropdown top-nav-user"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-lg"></i><span>鈴木太郎</span></a>
+                            <ul class="dropdown-menu settings-menu">
+                                <li><a href="#"><i class="fa fa-user fa-lg"></i> プロフィール編集</a></li>
+                                <li><a href="#"><i class="fa fa-sign-out fa-lg"></i> ログアウト</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Side-Nav-->
+        <aside class="main-sidebar hidden-print">
+            <section class="sidebar">
+                <!-- Sidebar Menu-->
+                <ul class="sidebar-menu">
+                    <li class="active"><a href="#"><i class="fa fa-user-o"></i><span>対話Bot</span></a></li>
+                    <li><a href="#"><i class="fa fa-comments-o"></i><span>FAQ管理</span></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gears"></i><span>API管理</span></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-file-text"></i><span>単語管理</span></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-files-o"></i><span>ファイル管理</span></a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            <div class="page-title">
+                <div>
+                    <h1 class="pull-left">シナリオ編集</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="edit-bot-title clearfix">
+                            <img src="images/user.png" alt="" class="img-circle pull-left">
+                            <p class="pull-left">会議室予約専用Bot</p>
+                        </div>
+
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">ユーザー</label>
+                                <div class="col-lg-10">
+                                    <textarea name="" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-lg-6">
+                                    <select class="form-control" id="select">
+                                        <option>選択して下さい。</option>
+                                        <option>Box Text</option>
+                                        <option>File</option>
+                                        <option>API</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2">
+                                    <button class="btn btn-default icon-btn" type="button"><i class="fa fa-plus" aria-hidden="true"></i>ADD</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Bot Text</label>
+                                <div class="col-lg-8">
+                                    <textarea name="" class="form-control"></textarea>
+                                </div>
+                                <div class="col-lg-2">
+                                    <i class="fa fa-times remove" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">File</label>
+                                <div class="col-lg-8">
+                                    <input class="form-control" type="file">
+                                </div>
+                                <div class="col-lg-2">
+                                    <i class="fa fa-times remove" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label" for="select">API</label>
+                                <div class="col-lg-8">
+                                    <select class="form-control" id="select">
+                                        <option>選択して下さい。</option>
+                                        <option>API1</option>
+                                        <option>API2</option>
+                                        <option>API3</option>
+                                        <option>API4</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2">
+                                    <i class="fa fa-times remove" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </form>
+                        <form class="form-inline text-center edit-bot-btn">
+                            <div class="form-group">
+                                <button class="btn btn-default" type="button">戻る</button>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-info" type="button">保存</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- card -->
+                    <div class="card next-scenario">
+                        <div class="next-scenario-title clearfix">
+                            <p class="pull-left">Next Scenario</p>
+                            <button class="btn btn-default icon-btn pull-right" type="button"><i class="fa fa-plus" aria-hidden="true"></i>Add Condition</button>
+                        </div>
+                        <form>
+                            <div class="form-inline scenario-box">
+                                <div class="form-group">
+                                    <input type="text" name="" placeholder="Condition" class="form-control">
+                                </div>
+                                <div class="form-group ">
+                                    <select class="form-control" id="select">
+                                        <option>Select Scenario</option>
+                                        <option>Scenario1</option>
+                                        <option>Scenario2</option>
+                                        <option>Scenario3</option>
+                                        <option>Scenario4</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <input type="text" name="" placeholder="Condition" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" id="select">
+                                        <option>Select Scenario</option>
+                                        <option>Scenario1</option>
+                                        <option>Scenario2</option>
+                                        <option>Scenario3</option>
+                                        <option>Scenario4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- col-md-9 -->
+                <div class="col-md-3">
+                    <div class="card">
+                        <h3 class="card-title">変数名</h3>
+                        <div class="card-body">
+                            <div class="variable">
+                                <p>変数名</p>
+                                <p>変数</p>
+                            </div>
+                            <div class="variable">
+                                <p>%TIMES%</p>
+                                <p>Time Seconds</p>
+                            </div>
+                            <div class="variable">
+                                <p>%TIMES%</p>
+                                <p>Time Seconds</p>
+                            </div>
+                            <div class="variable">
+                                <p>%TIMES%</p>
+                                <p>Time Seconds</p>
+                            </div>
+                            <div class="variable">
+                                <p>%TIMES%</p>
+                                <p>Time Seconds</p>
+                            </div>
+                            <div class="variable">
+                                <p>%TIMES%</p>
+                                <p>Time Seconds</p>
+                            </div>
+                            <div class="variable">
+                                <p>%TIMES%</p>
+                                <p>Time Seconds</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Javascripts-->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/pace.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

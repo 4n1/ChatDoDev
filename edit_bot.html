@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>ChatDo</title>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+    <!--if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    -->
+</head>
+
+<body class="sidebar-mini fixed manager">
+    <div class="wrapper">
+        <!-- Navbar-->
+        <header class="main-header hidden-print"><a class="logo" href="#"></a>
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button--><a class="sidebar-toggle" href="#" data-toggle="offcanvas"></a>
+                <!-- Navbar Right Menu-->
+                <div class="navbar-custom-menu">
+                    <ul class="top-nav">
+                        <!-- User Menu-->
+                        <li class="dropdown top-nav-user"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-lg"></i><span>鈴木太郎</span></a>
+                            <ul class="dropdown-menu settings-menu">
+                                <li><a href="#"><i class="fa fa-user fa-lg"></i> プロフィール編集</a></li>
+                                <li><a href="#"><i class="fa fa-sign-out fa-lg"></i> ログアウト</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Side-Nav-->
+        <aside class="main-sidebar hidden-print">
+            <section class="sidebar">
+                <!-- Sidebar Menu-->
+                <ul class="sidebar-menu">
+                    <li class="active"><a href="#"><i class="fa fa-user-o"></i><span>対話Bot</span></a></li>
+                    <li><a href="#"><i class="fa fa-comments-o"></i><span>FAQ管理</span></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-gears"></i><span>API管理</span></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-file-text"></i><span>単語管理</span></a>
+                    </li>
+                    <li><a href="#"><i class="fa fa-files-o"></i><span>ファイル管理</span></a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+            <div class="page-title">
+                <div>
+                    <h1 class="pull-left">対話Bot編集・削除</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="card">
+                        <div class="edit-bot-title clearfix">
+                            <img src="images/user.png" alt="" class="img-circle pull-left">
+                            <p class="pull-left">会議室予約専用Bot</p>
+                        </div>
+                        <ul class="nav nav-tabs nav-justified">
+                            <li class="active"><a href="#flow" data-toggle="tab">Flow</a></li>
+                            <li><a href="#params" data-toggle="tab">Params</a></li>
+                            <li><a href="#config" data-toggle="tab">Config</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="card-body tab-pane fade active in" id="flow">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label class="control-label">シナリオ名</label>
+                                        <input class="form-control" type="text" placeholder="シナリオ名を入力">
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-default icon-btn" type="button"><i class="fa fa-plus" aria-hidden="true"></i>ADD</button>
+                                    </div>
+                                </form>
+                                <canvas class="canvas">
+
+                                </canvas>
+                            </div>
+                            <!-- tab-pane -->
+
+                            <div class="card-body tab-pane fade" id="params">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label class="control-label">シナリオ名</label>
+                                        <input class="form-control" type="text" placeholder="シナリオ名を入力">
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-default icon-btn" type="button"><i class="fa fa-plus" aria-hidden="true"></i>ADD</button>
+                                    </div>
+                                </form>
+                                <canvas class="canvas">
+
+                                </canvas>
+                            </div>
+                            <!-- tab-pane -->
+
+                            <div class="card-body tab-pane fade" id="config">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label class="control-label">シナリオ名</label>
+                                        <input class="form-control" type="text" placeholder="シナリオ名を入力">
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-default icon-btn" type="button"><i class="fa fa-plus" aria-hidden="true"></i>ADD</button>
+                                    </div>
+                                </form>
+                                <canvas class="canvas">
+
+                                </canvas>
+                            </div>
+                            <!-- tab-pane -->
+                        </div>
+                        <form class="form-inline text-center edit-bot-btn">
+
+                            <div class="form-group">
+                                <button class="btn btn-default" type="button">戻る</button>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-info" type="button">次へ</button>
+                            </div>
+
+                        </form>
+                    </div>
+                    <!-- card -->
+                    <div class="card bot-delete">
+                        <p>Bot削除</p>
+                        <div class="edit-bot-title clearfix">
+                            <img src="images/user.png" alt="" class="img-circle pull-left">
+                            <p class="pull-left">会議室予約専用Botを削除する</p>
+                            <button class="btn btn-danger pull-right" type="button">Bot削除</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Javascripts-->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/pace.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

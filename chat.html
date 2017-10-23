@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="utf-8">
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS-->
@@ -23,6 +22,7 @@
         <!-- Navbar-->
         <header class="main-header hidden-print"><a class="logo" href="#"></a>
             <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button--><a class="sidebar-toggle" href="#" data-toggle="offcanvas"></a>
                 <!-- Navbar Right Menu-->
                 <div class="navbar-custom-menu">
                     <ul class="top-nav">
@@ -30,17 +30,17 @@
                         <li class="dropdown notification-menu"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell-o fa-lg"></i></a>
                             <ul class="dropdown-menu">
                                 <li class="not-head">新着通知が3件あります。</li>
-                                <li><a class="media" href="javascript:;"><span class="media-left media-icon"><span class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x text-primary"></i><i class="fa fa-comment fa-stack-1x fa-inverse"></i></span></span>
-                                <div class="media-body"><span class="block">佐藤孝からあたらしいメッセージが届きました。</span><span class="text-muted block">2分前</span></div></a></li>
-                                <li><a class="media" href="javascript:;"><span class="media-left media-icon"><span class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x text-danger"></i><i class="fa fa-pencil fa-stack-1x fa-inverse"></i></span></span>
-                                <div class="media-body"><span class="block">技術グループに新しい書き込みがありました。</span><span class="text-muted block">2分前</span></div></a></li>
-                                <li><a class="media" href="javascript:;"><span class="media-left media-icon"><span class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x text-success"></i><i class="fa fa-user-plus fa-stack-1x fa-inverse"></i></span></span>
-                                <div class="media-body"><span class="block">佐藤愛さんがあなたをAチームに追加しました。</span><span class="text-muted block">2分前</span></div></a></li>
+                                <li><a class="media" href="javascript:;"><span class="media-left media-icon"><span class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
+                      <div class="media-body"><span class="block">佐藤孝からあたらしいメッセージが届きました。</span><span class="text-muted block">2分前</span></div></a></li>
+                                <li><a class="media" href="javascript:;"><span class="media-left media-icon"><span class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
+                      <div class="media-body"><span class="block">技術グループに新しい書き込みがありました。</span><span class="text-muted block">2分前</span></div></a></li>
+                                <li><a class="media" href="javascript:;"><span class="media-left media-icon"><span class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
+                      <div class="media-body"><span class="block">佐藤愛さんがあなたをAチームに追加しました。</span><span class="text-muted block">2分前</span></div></a></li>
                                 <li class="not-footer"><a href="#">すべての通知を既読にする。</a></li>
                             </ul>
                         </li>
                         <!-- User Menu-->
-                        <li class="dropdown top-nav-user"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user fa-lg"></i><span>鈴木太郎</span></a>
+                        <li class="dropdown top-nav-user"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="images/user_ai.jpg" alt="" class="img-circle"><span>佐藤愛</span></a>
                             <ul class="dropdown-menu settings-menu">
                                 <li><a href="#"><i class="fa fa-user fa-lg"></i> プロフィール編集</a></li>
                                 <li><a href="#"><i class="fa fa-sign-out fa-lg"></i> ログアウト</a></li>
@@ -59,15 +59,19 @@
                         <form class="navbar-form" role="search">
                             <div class="form-group">
                                 <i class="fa fa-search fa-lg"></i>
-                                <input id="txtSearch" type="text" class="form-control" placeholder="検索">
+                                <input id="txtSearch" type="text" class="form-control" placeholder="ユーザー検索">
                             </div>
                             <!--  <button type="submit" class="btn btn-default"><i class="fa fa-search fa-lg"></i></button> -->
                         </form>
                     </li>
-                    <li class="treeview active"><a href="#"><i class="fa fa-thumb-tack"></i><span>いつも使う相手</span><i class="fa fa-angle-right"></i></a>
+                    <li class="add-btn clearfix">
+                        <a href="" class="pull-left text-center"><i class="fa fa-plus" aria-hidden="true"></i> ユーザー追加</a>
+                        <a href="" class="pull-right text-center"><i class="fa fa-plus" aria-hidden="true"></i> グループ作成</a>
+                    </li>
+                    <li class="treeview active"><a href="#"><i class="fa fa-thumb-tack unread"></i><span>いつも使う相手</span><i class="fa fa-angle-right"></i></a>
                         <ul class="treeview-menu">
                             <li><a href="#"><img src="images/user.png" alt="" class="img-circle"><span class="bot-label">B</span> 会議室予約</a></li>
-                            <li><a href="#"><img src="images/user_ai.jpg" alt="" class="img-circle"> 佐藤愛</a></li>
+                            <li><a href="#"><img src="images/user_ai.jpg" alt="" class="img-circle"> 佐藤愛 <span class="unread-num pull-right text-center">65</span></a></li>
                             <li><a href="#"><img src="images/user.png" alt=""> マーケティングチーム</a></li>
                         </ul>
                     </li>
@@ -89,7 +93,7 @@
                             <li><a href="#"><img src="images/user.png" alt=""> Bチーム</a></li>
                         </ul>
                     </li>
-                    <li class="treeview"><a href="#"><i class="fa fa-comments-o"></i><span>Bot</span><i class="fa fa-angle-right"></i></a>
+                    <li class="treeview side-bot"><a href="#"><i class="fa fa-comments-o"></i><span>Bot</span><i class="fa fa-angle-right"></i></a>
                         <ul class="treeview-menu">
                             <li><a href="#"><img src="images/user.png" alt="" class="img-circle"><span class="bot-label">B</span> 会議室予約</a></li>
                         </ul>
@@ -105,7 +109,15 @@
                         <h1>佐藤愛</h1>
                         <span>aisato</span>
                     </div>
-                    <i class="fa fa-thumb-tack pull-left"></i>
+                    <i class="fa fa-thumb-tack pull-left pin"></i>
+                    <div class="form-group pull-right message-search">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="チャットを検索">
+                            <span class="input-group-btn">
+                  <button class="btn btn-primary" type="button">検索</button>
+                </span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -114,7 +126,6 @@
                         <div class="messanger">
                             <div id="messages" class="messages">
                                 <time class="messages-date text-center"><span>2017.10.15(土)</span></time>
-
                                 <div class="message">
                                     <div class="message-thumb">
                                         <img src="images/user_ai.jpg" class="img-circle">
@@ -135,10 +146,10 @@
                                         <div>
                                             <time class="pull-right">12:00</time>
                                         </div>
-                                        <p class="info">申し訳ありません<br>今日中に提出します！</p>
+                                        <p class="info">申し訳ありません
+                                            <br>今日中に提出します！</p>
                                     </div>
                                 </div>
-
                                 <div class="message">
                                     <div class="message-thumb">
                                         <img src="images/user_ai.jpg" class="img-circle">
@@ -152,30 +163,30 @@
                                     </div>
                                 </div>
                                 <!-- message -->
-
                                 <div class="message">
                                     <div class="message-thumb">
-                                        <!-- <img src="images/user_ai.jpg" class="img-circle"> -->
+                                        <!-- <img src="https://s3.amazonaws.com/uifaces/faces/twitter/tonypeterson/48.jpg" class="img-circle"> -->
                                     </div>
                                     <div class="chat-column">
                                         <div>
                                             <span class=pull-left>佐藤愛</span>
                                             <time class="pull-right">12:00</time>
                                         </div>
-                                        <p class="info">佐藤愛がデータを送信しました。<br>提出書類.xls<br><i class="fa fa-download" aria-hidden="true"></i>
-                                            <a href="">ダウンロードする</a>
-                                        </p>
+                                        <p class="info">佐藤愛がデータを送信しました。
+                                            <br>提出書類.xls
+                                            <br><i class="fa fa-download" aria-hidden="true"></i><a href="">ダウンロードする。</a></p>
                                     </div>
                                 </div>
                                 <!-- message -->
-
                                 <div class="message me"><img src="images/user_taro.jpg" class="img-circle">
                                     <div class="chat-column">
                                         <div>
                                             <time class="pull-right">12:00</time>
                                         </div>
-                                        <p class="info">鈴木太郎が画像を送信しました。<br>
-                                            <img src="images/user.png" alt=""><br> 提出書類_鈴木太郎.xls
+                                        <p class="info">鈴木太郎が画像を送信しました。
+                                            <br>
+                                            <img src="images/user.png" alt="">
+                                            <br> 提出書類_鈴木太郎.xls
                                             <br><i class="fa fa-download" aria-hidden="true"></i><a href="">ダウンロードする。</a></p>
                                     </div>
                                 </div>
@@ -184,16 +195,23 @@
                             <!-- messages -->
                         </div>
                         <!-- messager -->
-
                         <div class="sender">
                             <form action="" method="" accept-charset="utf-8">
                                 <div class="sender-utility clearfix">
+                                    <ul class="pull-left">
+                                        <li><img src="images/chat_to_icon.svg" alt=""></li>
+                                        <li><i class="fa fa-smile-o fa-fw" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-picture-o fa-fw" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-paperclip fa-fw" aria-hidden="true"></i></li>
+                                    </ul>
+<!--
                                     <button id="btnPict" class="btn btn-default pull-left" type="file">
                                         <i class="fa fa-lg fa-picture-o"></i>
                                     </button>
                                     <button id="btnFile" class="btn btn-default pull-left" type="file">
                                         <i class="fa fa-lg fa-paperclip"></i>
                                     </button>
+-->
                                     <!--
                                         <ul class="pull-left">
                                         <li id="btnPicttttt" class="btn btn-default">
@@ -213,8 +231,7 @@
                                         <i class="fa fa-lg fa-paper-plane"></i>
                                     </button>
                                     <label class="pull-right enter-confirm">
-                                        <input type="checkbox" name=""> Enterで送信
-                                    </label>
+                                        <input type="checkbox" name=""> Enterで送信</label>
                                 </div>
                                 <textarea id="msgContent" placeholder="ここにメッセージ内容を入力"></textarea>
                             </form>
@@ -224,7 +241,10 @@
                 <!-- col-md-9 -->
                 <div class="col-md-3">
                     <div class="card">
-                        <h3 class="card-title">メンバー</h3>
+                        <div class="clearfix">
+                            <h3 class="card-title pull-left">メンバー</h3>
+                            <i class="fa fa-user-plus fa-lg pull-right" aria-hidden="true"></i>
+                        </div>
                         <div class="card-body">
                             <div class="member-box clearfix">
                                 <img src="images/user_taro.jpg" alt="" class="img-circle pull-left">
@@ -239,6 +259,7 @@
                                     <p>佐藤愛</p>
                                     <span>aisato</span>
                                 </div>
+                                <i class="fa fa-times pull-right remove" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
@@ -253,6 +274,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/plugins/pace.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/websocketbridge.js"></script>
 </body>
 
 </html>

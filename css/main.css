@@ -3984,7 +3984,7 @@ tbody.collapse.in {
     display: none;
 }
 
-.tab-content>.active {
+.tab-content>.tab-pane.active {
     display: block;
 }
 

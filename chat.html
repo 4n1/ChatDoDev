@@ -59,7 +59,7 @@
                         <form class="navbar-form" role="search">
                             <div class="form-group">
                                 <i class="fa fa-search fa-lg"></i>
-                                <input type="text" class="form-control" placeholder="ユーザー検索">
+                                <input id="txtSearch" type="text" class="form-control" placeholder="ユーザー検索">
                             </div>
                             <!--  <button type="submit" class="btn btn-default"><i class="fa fa-search fa-lg"></i></button> -->
                         </form>
@@ -79,6 +79,12 @@
                         <ul class="treeview-menu">
                             <li><a href="#"><img src="images/user.png" alt="" class="img-circle"> ユーザーA</a></li>
                             <li><a href="#"><img src="images/user.png" alt="" class="img-circle"> ユーザーB</a></li>
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle">山田二郎</a></li>
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle">山田花子</a></li>
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle">佐藤健二</a></li>
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle">木村好子</a></li>
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle">佐藤亜紀</a></li>
+                            <li><a href="#"><img src="images/user.png" alt="" class="img-circle">佐々木二郎</a></li>
                         </ul>
                     </li>
                     <li class="treeview"><a href="#"><i class="fa fa-users"></i><span>グループ</span><i class="fa fa-angle-right"></i></a>
@@ -108,7 +114,7 @@
                         <div class="input-group">
                             <input class="form-control" type="text" placeholder="チャットを検索">
                             <span class="input-group-btn">
-                                <button class="btn btn-primary" type="button">検索</button>
+                                <button id="btnSearchChat" class="btn btn-primary" type="button">検索</button>
                             </span>
                         </div>
                     </div>
@@ -118,7 +124,7 @@
                 <div class="col-md-9">
                     <div class="card chat-main">
                         <div class="messanger">
-                            <div class="messages">
+                            <div id="messages" class="messages">
                                 <time class="messages-date text-center"><span>2017.10.15(土)</span></time>
                                 <div class="message">
                                     <div class="message-thumb">
@@ -196,20 +202,18 @@
                             <form action="" method="" accept-charset="utf-8">
                                 <div class="sender-utility clearfix">
                                     <ul class="pull-left">
-                                        <li><img src="images/chat_to_icon.svg" alt=""></li>
-                                        <li><i class="fa fa-smile-o fa-fw" aria-hidden="true"></i></li>
                                         <li><i class="fa fa-picture-o fa-fw" aria-hidden="true"></i></li>
                                         <li><i class="fa fa-paperclip fa-fw" aria-hidden="true"></i></li>
                                     </ul>
                                     <span class="upload-file-name">証明写真.jpg</span>
-                                    <button class="btn btn-primary pull-right" type="button">
+                                    <button id="btnSend" class="btn btn-primary pull-right" type="button">
                                         <i class="fa fa-lg fa-paper-plane"></i>
                                     </button>
                                     <label class="pull-right enter-confirm">
                                         <input type="checkbox" name=""> Enterで送信
                                     </label>
                                 </div>
-                                <textarea placeholder="ここにメッセージ内容を入力"></textarea>
+                                <textarea id="msgContent" placeholder="ここにメッセージ内容を入力"></textarea>
                             </form>
                         </div>
                     </div>

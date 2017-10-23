@@ -328,7 +328,7 @@ function alertValue(elm) {
 
 // ユーザー検索
 $(function () {
-	searchWord = function () {
+	searchUser = function () {
 		var searchText = $(this).val(), // ユーザー検索ボックスに入力された値
 			targetText;
 
@@ -336,26 +336,73 @@ $(function () {
 			targetText = $(this).text();
 
 			// 検索対象となるリストに入力された文字列が存在するかを判定する。
-			if (targetText.indexOf(searchText) != -1) {
-				$(this).show();
-			} else {
+			if (targetText.indexOf(searchText) === -1) {
 				$(this).hide();
+			} else {
+				$(this).show();
 			}
 		});
 	};
 
 	// searchWordの実行(オートコンプリートにも対応させるためinputイベントにしている)
-	$("#txtSearch").on("input", searchWord);
+	$("#txtSearch").on("input", searchUser);
 });
 
-// チャット検索
 $(function () {
-	$("#btnSearchChat").click(function () {
-		$("html, body").animate({ scrollTop: $('#btnSend').offset().top });
-	})
-})
+	searchChat = function () {
+		var searchText = $("#txtSearchChat").val(), // チャット検索ボックスに入力された値
+			targetText;
+
+		$($("div.chat-column p.info").get().reverse()).each(function () {
+			targetText = $(this).text();
+
+			if (targetText.indexOf(searchText) === -1) {
+				// ヒットしない場合は何も処理しない。
+			} else {
+				$("#messages").scrollTop(this.offsetTop);
+			}
+		});
+	};
 
 
+
+
+
+
+
+	$("#btnSearchChat").click(searchChat);
+});
+
+
+
+// // チャット検索
+// $(function () {
+// 	$("#btnSearchChat").click(function () {
+// 		$("html, body").animate({ scrollTop: $('#btnSend').offset().top });
+// 	})
+// })
+
+// function findText(text) {
+// 	var chatText = $("div.chat-column p.info");
+// 	var idx = chatText.indexOf(text);
+
+// 	if (idx === -1) {
+// 		alert("No Hit.")
+// 	} else {
+// 		alert("Hit.")
+// 	}
+
+// 	// var scrollTop = $('#messanger').scrollTop();
+// 	var result = $("#messages:contains('" + text + "')");
+
+// 	// if (result.length == 0) {
+// 	// 	alert("No Hit.");
+// 	// } else {
+// 	// 	var pos = result.position();
+// 	// 	alert(pos.left);
+// 	// 	// $('#message').scrollTop(scrollTop + pos.top);
+// 	// }
+// };
 
 
 $(function () {

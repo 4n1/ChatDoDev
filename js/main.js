@@ -348,6 +348,16 @@ $(function () {
 	$("#txtSearch").on("input", searchWord);
 });
 
+// チャット検索
+$(function () {
+	$("#btnSearchChat").click(function () {
+		$("html, body").animate({ scrollTop: $('#btnSend').offset().top });
+	})
+})
+
+
+
+
 $(function () {
 	$("#btnSend").click(function () {
 		// Todo: 日付と曜日の挿入

@@ -358,25 +358,34 @@ var topPos = new Array();
 // チャット検索(前回検索後、メッセージが追加されても前回の続きから検索する。)
 $(function () {
 	searchChat = function () {
+		// チャット検索ボックスに入力された値
+		var searchText = $("#txtSearchChat").val().trim();
 
-		if ($("#txtSearchChat").val() === "") {
+		if (searchText === "") {
 			return;
 		}
 
-		var searchText = $("#txtSearchChat").val(), // チャット検索ボックスに入力された値
-			targetText,      // 検索対象のメッセージ
+		var targetText,      // 検索対象のメッセージ
 			targetIndex = 0, // 検索でヒットして表示対象になるメッセージのインデックス
 			numHit = 0;      // 検索でヒットした件数
 
 		topPos.length = 0;
+
+		// 前回の検索でマーキングしたものを削除する。
+		$("mark").contents().unwrap();
 
 		$("div.chat-column p.info").each(function () {
 			targetText = $(this).text();
 
 			if (targetText.indexOf(searchText) !== -1) {
 				topPos.push(this.offsetTop);
+
+				var str;
+				str = $(this).html().replace(new RegExp(searchText, 'g'), '<mark class="highlight">' + searchText.trim() + '</mark>');
+				$(this).html(str);
+
 				numHit += 1;
-			}
+			};
 		});
 
 		if (numHit === 0) {

@@ -348,27 +348,59 @@ $(function () {
 	$("#txtSearch").on("input", searchUser);
 });
 
+// 前回検索した文字列
+var preSearchText = "";
+// 前回表示対象になったメッセージのインデックス
+var preSearchIndex = Number.MAX_VALUE;
+// 検索でヒットしたメッセージのTop位置を保持する配列
+var topPos = new Array();
+
+// チャット検索(前回検索後、メッセージが追加されても前回の続きから検索する。)
 $(function () {
 	searchChat = function () {
-		var searchText = $("#txtSearchChat").val(), // チャット検索ボックスに入力された値
-			targetText;
 
-		$($("div.chat-column p.info").get().reverse()).each(function () {
+		if ($("#txtSearchChat").val() === "") {
+			return;
+		}
+
+		var searchText = $("#txtSearchChat").val(), // チャット検索ボックスに入力された値
+			targetText,      // 検索対象のメッセージ
+			targetIndex = 0, // 検索でヒットして表示対象になるメッセージのインデックス
+			numHit = 0;      // 検索でヒットした件数
+
+		topPos.length = 0;
+
+		$("div.chat-column p.info").each(function () {
 			targetText = $(this).text();
 
-			if (targetText.indexOf(searchText) === -1) {
-				// ヒットしない場合は何も処理しない。
-			} else {
-				$("#messages").scrollTop(this.offsetTop);
+			if (targetText.indexOf(searchText) !== -1) {
+				topPos.push(this.offsetTop);
+				numHit += 1;
 			}
 		});
+
+		if (numHit === 0) {
+			return;
+		}
+
+		if (preSearchText !== searchText) {
+			preSearchText = searchText;
+			preSearchIndex = Number.MAX_VALUE;
+		}
+
+		if (preSearchIndex > numHit) {
+			targetIndex = numHit - 1;
+		} else {
+			if (preSearchIndex === 0) {
+				targetIndex = numHit - 1;
+			} else {
+				targetIndex = preSearchIndex - 1;
+			}
+		}
+		preSearchIndex = targetIndex;
+
+		$("#messages").scrollTop(topPos[targetIndex] - 30);
 	};
-
-
-
-
-
-
 
 	$("#btnSearchChat").click(searchChat);
 });

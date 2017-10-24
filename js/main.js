@@ -417,54 +417,18 @@ $(function () {
 	$("#btnSearchChat").click(searchChat);
 });
 
-
-
-// // チャット検索
-// $(function () {
-// 	$("#btnSearchChat").click(function () {
-// 		$("html, body").animate({ scrollTop: $('#btnSend').offset().top });
-// 	})
-// })
-
-// function findText(text) {
-// 	var chatText = $("div.chat-column p.info");
-// 	var idx = chatText.indexOf(text);
-
-// 	if (idx === -1) {
-// 		alert("No Hit.")
-// 	} else {
-// 		alert("Hit.")
-// 	}
-
-// 	// var scrollTop = $('#messanger').scrollTop();
-// 	var result = $("#messages:contains('" + text + "')");
-
-// 	// if (result.length == 0) {
-// 	// 	alert("No Hit.");
-// 	// } else {
-// 	// 	var pos = result.position();
-// 	// 	alert(pos.left);
-// 	// 	// $('#message').scrollTop(scrollTop + pos.top);
-// 	// }
-// };
-
-
 $(function () {
-	$("#btnSend").click(function () {
-		// Todo: 日付と曜日の挿入
-		// Todo: メッセージの入力チェック
-		// Todo: テスト用
+	function sendMessage() {
+		// Todo: この処理全体がテスト用
 		var obj = {
 			time: "17:00",
 		};
 
-		// Todo: 別functionにして汎用化させる。
 		var $divMessage = $("<div>");
 		$divMessage.addClass("message me");
 
 		var $divMessageThumb = $("<div>");
 		$divMessageThumb.addClass("message-thumb");
-		// Todo: ユーザに応じた画像にする。
 		$divMessageThumb.append('<img src="images/user_taro.jpg" class="img-circle">');
 		$divMessageThumb.append("</div>");
 		$divMessage.append($divMessageThumb);
@@ -472,7 +436,6 @@ $(function () {
 		var $divMessageChat = $("<div>");
 		$divMessageChat.addClass("chat-column");
 		$divMessageChat.append("<div>");
-		// Todo: 右側に配置させる。
 		$divMessageChat.append('<time class="pull-right">' + obj.time + '</time>');
 		$divMessageChat.append("</div>");
 		$divMessageChat.append('<p class="info">' + $("#msgContent").val() + '</p>');
@@ -485,10 +448,24 @@ $(function () {
 		$("#messages").append($divMessage);
 		$("#messages").scrollTop($("#messages")[0].scrollHeight);
 
-		// Todo: サーバへメッセージを送信する。送信後に受信処理を追加する。
-		// Todo: サーバのステータスがエラーの場合、メインエリアにはメッセージは表示しない。
-		//       (メッセージを送信後、正常の場合、メインエリアに受信したメッセージ(送信した内容と同じ)を表示する。)
-		// Todo: メッセージエリアを一番下までスクロールさせる。
+		// Todo: 送信後、受信してその内容を画面に表示する。
+		// Todo: 送信成功ならば、クリアするようにする。
+		$("#msgContent").val("");
+	};
+
+	// 送信ボタン(紙飛行機アイコン)を押下した場合
+	$('#btnSend').click(sendMessage);
+
+	// 「Enterで送信」がオンで、メッセージ入力領域内でEnterキーを押下した場合
+	$("#msgContent").keypress(function (e) {
+		if ($("#chkEnter").prop("checked")) {
+			if (e.which === 13) {
+				sendMessage();
+				// sendMessage内で入力した内容をクリアしてもEnterキーの入力が
+				// 残ってしまうため、falseを返して入力を無効にする。
+				return false;
+			};
+		};
 	});
 });
 
@@ -496,120 +473,83 @@ $(function () {
 
 
 
-// $(function () {
-// 	$("#btnUserEdit").click(function () {
-// 		$("<div />")
-// 			.load("userEdit.html #frmMain")
-// 			.dialog({
-// 				modal: true,
-// 				title: "プロファイル変更",
-// 				resizable: false,
-// 				width: 800,
-// 				height: 400
-// 			}).dialog("open");
+$(function () {
+	// ドラッグ&ドロップのイベントをハンドルする。
+	var obj = $("#messageCard");
+	obj.on('dragenter', function (e) {
+		e.stopPropagation();
+		e.preventDefault();
+		// e.style("cursor: hand");
+	});
+	obj.on('dragover', function (e) {
+		e.stopPropagation();
+		e.preventDefault();
+	});
+	obj.on('drop', function (e) {
+		e.preventDefault();
+		var files = e.originalEvent.dataTransfer.files;
 
-// 		// クリックして別窓表示という本来の動作をキャンセルする。
-// 		return false;
-// 	})
-// })
+		handleFileUpload(files);
+	});
 
+	// メッセージ領域外でファイルがドロップされた場合、ブラウザで開いてしまうのを防ぐ。
+	$(document).on('dragenter', function (e) {
+		e.stopPropagation();
+		e.preventDefault();
+	});
+	$(document).on('dragover', function (e) {
+		e.stopPropagation();
+		e.preventDefault();
+	});
+	$(document).on('drop', function (e) {
+		e.preventDefault();
+		e.preventDefault();
+	});
 
-// (function ($) {
-// 	// style
-// 	var bgStyle = 'display: none;' +
-// 		'width: 100%;' +
-// 		'height: 2000px;' +
-// 		'position: fixed;' +
-// 		'top: 0;' +
-// 		'left: 0;' +
-// 		'z-index: 9999;' +
-// 		'background: #333;';
+	// ファイルがドロップされた際、HTML5のFormData()を使用して、ファイルを読み込む。
+	function handleFileUpload(files) {
+		for (var i = 0; i < files.length; i++) {
+			var fd = new FormData();
+			fd.append('file', files[i]);
+			sendFileToServer(fd);
+		}
+	}
 
-// 	var wrapStyle = 'display: none;' +
-// 		'width: 1000px;' +
-// 		'height:' + ($(window).height() * 0.9) + 'px;' +
-// 		'margin: 0 0 0 -500px;' +
-// 		'position: fixed;' +
-// 		'top: 40px;' +
-// 		'left: 50%;' +
-// 		'z-index: 9999;' +
-// 		'background: #fff;';
+	// jQuery AJAX APIを使用して、FormData()をサーバに送信する。
+	function sendFileToServer(formData) {
+		var uploadUrl = "";
+		var extraData = {};
+		// Todo: アップロード処理の実装
+		alert("アップロードが完了しました。");
+		// var jqXhr = $.ajax({
+		// 	xhr: function () {
+		// 		var xhrObj = $.ajaxSettings.xhr();
+		// 		if (xhrObj.upload) {
+		// 			xhrObj.upload.addEventListener('progress', onDrop, false);
+		// 		}
+		// 		return xhrObj;
+		// 	},
+		// 	url: uploadUrl,
+		// 	type: "POST",
+		// 	contentType: false,
+		// 	processData: false,
+		// 	cache: false,
+		// 	data: formData,
+		// 	success: function (data) {
+		// 		alert("アップロードが完了しました。");
+		// 	}
+		// });
+	};
 
-// 	var btnStyle = 'display: none;' +
-// 		'width: 40px;' +
-// 		'height: 40px;' +
-// 		'position: fixed;' +
-// 		'top: 20px;' +
-// 		'right: 20px;' +
-// 		'z-index: 9999;' +
-// 		'background: #999;' +
-// 		'border-radius: 50%;' +
-// 		'cursor: pointer;' +
-// 		'line-height: 40px;' +
-// 		'text-align: center;' +
-// 		'color: #fff';
-
-// 	var html = '&lt;div id="iframe-bg" style="' + bgStyle + '"&gt;&lt;/div&gt;' +
-// 		'&lt;div id="iframe-wrap" style="' + wrapStyle + '"&gt;&lt;/div&gt;' +
-// 		'&lt;div id="iframe-btn" style="' + btnStyle + '"&gt;X&lt;/div&gt;';
-
-// 	// add element
-// 	$(html).appendTo('body');
-
-// 	// click event
-// 	$('.link a').click(function () {
-// 		var url = $(this).attr('href');
-
-// 		$('#iframe-wrap').html('&lt;iframe src="' + url + '" width="800" height="400"&gt;');
-// 		$('#iframe-bg').fadeTo('normal', 0.8);
-
-// 		$('#iframe-wrap iframe').load(function () {
-// 			$('#iframe-wrap').fadeIn();
-// 			$('#iframe-btn').fadeIn();
-// 		});
-
-// 		return false;
-// 	});
-
-// 	$('#iframe-btn').click(function () {
-// 		$('#iframe-bg, #iframe-btn, #iframe-wrap').fadeOut();
-// 	});
-
-// })(jQuery);
-
-
-// (function ($) {
-// 	$('#lnkUserEdit').click(function () {
-// 		var url = $(this).attr('href');
-
-// 		$('#iframe-wrap').html('&lt;iframe src="' + url + '" width="800" height="400"&gt;');
-// 		$('#iframe-bg').fadeTo('normal', 0.8);
-
-// 		$('#iframe-wrap iframe').load(function () {
-// 			// 呼び出し先のヘッダーとフッターを隠す
-// 			$(this).contents().find('#header, #footer').hide();
-
-// 			$('#iframe-wrap').fadeIn();
-// 			$('#iframe-btn').fadeIn();
-// 		});
-
-// 		return false;
-// 	});
-
-// })(jQuery);
-
-// (function ($) {
-$('#btnPict').click(function () {
-	alert("Upload");
-
-	$("#refPict").upload(
-		'upload.html',
-		{ now: '2017/10/19' },
-		function (res) {
-			alert(res);
-		},
-		'text'
-	);
+	function onDrop(event) {
+		var files = event.dataTransfer.files;
+		// Todo: 画面に情報を表示する処理等を実装する。
+		$("uploadFile").innerHTML = "";
+		for (var i = 0; i < files.length; i++) {
+			var file = files[i];
+			$("uploadFile").innerHTML +=
+				file.name + "(" + file.size / 1000 + "KB)" + "<br />";
+			alert("ファイルをドロップしました。")
+		}
+	};
 });
-// });
-

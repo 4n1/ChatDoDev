@@ -389,11 +389,14 @@ $(function () {
 		}
 
 		if (preSearchIndex > numHit) {
+			// 一番下の検索結果を表示させる。
 			targetIndex = numHit - 1;
 		} else {
 			if (preSearchIndex === 0) {
+				// 一番上まで検索したら、一番下まで戻って表示させる。
 				targetIndex = numHit - 1;
 			} else {
+				// 前回の検索結果で表示したものの一つ上を表示させる。
 				targetIndex = preSearchIndex - 1;
 			}
 		}

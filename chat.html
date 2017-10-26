@@ -355,7 +355,8 @@
                             <form action="" method="" accept-charset="utf-8">
                                 <div class="sender-utility clearfix">
                                     <ul class="pull-left">
-                                        <li><i class="fa fa-picture-o fa-fw" aria-hidden="true"></i></li>
+                                        <li><i class="fa fa-picture-o fa-fw" aria-hidden="true" onclick="$('#file_input').click();"></i></li>
+                                        <input id="file_input" onchange="$('#uploadFile').text($(this).val())" style="display: none;" type="file">
                                         <li><i class="fa fa-paperclip fa-fw" aria-hidden="true"></i></li>
                                     </ul>
                                     <span id="uploadFile" class="upload-file-name"></span>

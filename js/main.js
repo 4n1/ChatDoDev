@@ -417,9 +417,15 @@ $(function () {
 	$("#btnSearchChat").click(searchChat);
 });
 
+// メッセージ送信
 $(function () {
 	function sendMessage() {
 		// Todo: この処理全体がテスト用
+
+		if ($("#msgContent").val() === "") {
+			return;
+		}
+
 		var obj = {
 			time: "17:00",
 		};
@@ -469,10 +475,13 @@ $(function () {
 	});
 });
 
+// 画面初期表示処理
+$(function () {
+	$("#messages").scrollTop($("#messages")[0].scrollHeight);
+});
 
 
-
-
+// 添付ファイルドラッグ&ドロップ
 $(function () {
 	// ドラッグ&ドロップのイベントをハンドルする。
 	var obj = $("#messageCard");
@@ -488,8 +497,12 @@ $(function () {
 	obj.on('drop', function (e) {
 		e.preventDefault();
 		var files = e.originalEvent.dataTransfer.files;
-
-		handleFileUpload(files);
+		
+		// Todo: 複数のファイルを受け入れるのか?
+		for (var i = 0; i < files.length; i++){
+			$("#uploadFile").text(files[i].name);
+		}
+		// handleFileUpload(files);
 	});
 
 	// メッセージ領域外でファイルがドロップされた場合、ブラウザで開いてしまうのを防ぐ。
@@ -517,6 +530,7 @@ $(function () {
 
 	// jQuery AJAX APIを使用して、FormData()をサーバに送信する。
 	function sendFileToServer(formData) {
+		// Todo: D&Dした時点では送信せず、送信ボタンを押下すると送信するようにする。
 		var uploadUrl = "";
 		var extraData = {};
 		// Todo: アップロード処理の実装
@@ -553,3 +567,9 @@ $(function () {
 		}
 	};
 });
+
+// $(function () {
+// 	$("#btnPict").click(function () {
+// 		alert("sss");
+// 	});
+// });

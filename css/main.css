@@ -16699,3 +16699,7 @@ mark.highlight {
     background: yellow;
     font-size: inherit;
 }
+
+.form-group .control-label {
+    margin-top: 10px;
+}

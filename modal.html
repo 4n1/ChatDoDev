@@ -64,41 +64,163 @@
                 <div class="col-md-12">
                     <div class="card">
                         <button type="button" id="sampleButton" class="btn btn-primary">モーダル呼び出し</button>
-                        
-                        <div class="modal fade" id="sampleModal" tabindex="-1">
+
+                        <div class="modal fade" id="divMain" tabindex="-1">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-                                        <h4 class="modal-title">タイトル</h4>
+                                        <h4 class="modal-title">ユーザー・グループ選択</h4>
                                     </div>
                                     <div class="modal-body">
-                                        本文
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">検索対象</label>
+                                                <div class="col-md-7" style="padding-left: 30px;">
+                                                    <div class="radio-inline">
+                                                        <label>
+                                                            <input id="chkUser" type="radio" name="tag" checked="checked">ユーザー</input>
+                                                        </label>
+                                                    </div>
+                                                    <div class="radio-inline">
+                                                        <label>
+                                                            <input id="chkGroup" type="radio" name="tag">グループ</input>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-4">ユーザー名・グループ名</label>
+                                                <div class="col-md-7">
+                                                    <div class="col-md-9">
+                                                        <input id="txtSearch" class="form-control" type="text" />
+                                                    </div>
+                                                    <div class="col-md-2" style="padding-top: 3px;">
+                                                        <button id="btnSearch" class="btn btn-info" type="button">検索</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+
+
+
+                                        <table id="tblResult" class="table table-bordered">
+                                            <tbody>
+                                                <tr id="trRow">
+                                                    <th>会議室</th>
+                                                    <td>A会議室、B会議室</td>
+                                                </tr>
+                                                <tr id="trRow">
+                                                    <th>根菜</th>
+                                                    <td>大根、人参、ごぼう</td>
+                                                </tr>
+                                                <tr id="trRow">
+                                                    <th>ぶどう</th>
+                                                    <td>デラウェア、ピオーネ、巨峰</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <!-- 検索時のユーザーかグループかのタイプを格納する。 -->
+                                        <input id="hdnType" type="hidden" />
+                                        <!-- 選択した行のユーザーIDかグループIDを格納する。 -->
+                                        <input id="hdnID" type="hidden" />
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-                                        <button type="button" class="btn btn-primary">ボタン</button>
+                                        <button id="btnClose" type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                                        <button id="btnSelect" type="button" class="btn btn-primary" data-dismiss="modal">選択</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- card -->
+                    <div class="col-md-12">
+                        <div id="divTargetType"></div>
+                        <div id="divTargetID"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Javascripts-->
-    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins/pace.min.js"></script>
     <script src="js/main.js"></script>
     <script>
-    $(function() {
-        $('#sampleButton').click( function () {
-            $('#sampleModal').modal();
+        $(function () {
+            $('#sampleButton').click(function () {
+                $('#chkUser').prop('checked', true);
+                $("#txtSearch").val('');
+                $('#hdnType').val('');
+                $('#hdnID').val('');
+                // Todo: 呼出し元画面の処理に応じて初期化する。
+                // $('#divTargetType').html('');
+                // $('#divTargetID').html('');
+
+                $('#divMain').modal();
+            });
         });
-    });
+
+        // ユーザー・グループ選択モーダル画面の検索ボタン押下処理
+        $('#btnSearch').on('click', function () {
+            // ユーザー名・グループ名ボックスに入力された値
+            var searchText = $("#txtSearch").val().trim();
+
+            // 何も入力されていない場合、何も処理しない。
+            if (searchText === "") {
+                return;
+            }
+
+            // 呼出し元画面で、検索時の検索タイプを使用する場合、この値を使用する。
+            if ($('#chkUser').is(':checked')) {
+                // ユーザー名が指定された場合
+                $('#hdnType').val('1');
+            } else {
+                // グループ名が指定された場合
+                $('#hdnType').val('2');
+            }
+
+            // Todo: 検索処理の実装
+            alert('検索を開始します。');
+        });
+
+        // 検索結果一覧の行押下処理
+        $('tr').on('click', function () {
+            $(this).css("background-color", "blue");
+            $('tr').not(this).css("background-color", "");
+
+            // 選択行のユーザーID、または、グループIDを隠し項目にセットする。
+            // 検索結果一覧の2列目(1個目のtd)にユーザーID・グループIDが表示されている前提としている。
+            var tr = $('#tblResult tr');
+            var index = $('tr').index(this);
+            var value = tr.eq(index).children().eq(1).text();
+            $('#hdnID').val(value);
+        });
+
+        // ユーザー・グループ選択モーダル画面の選択ボタン押下処理
+        $('#btnSelect').on('click', function () {
+            // 選択行のID
+            var targetID = $('#hdnID').val();
+
+            // 検索結果一覧で行が選択されていない場合、何も処理しない。
+            if (targetID === "") {
+                return false;
+            }
+
+            // Todo: 呼出し元画面へ
+            $('#divTargetType').html($('#hdnType').val());
+            $('#divTargetID').html(targetID);
+
+            return true;
+        });
     </script>
+    <style>
+
+    </style>
 </body>
+
 </html>

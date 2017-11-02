@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+    <title>ChatRooms@ChatDo--</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS-->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <!-- Font-icon css-->
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
+    <!--if lt IE 9
+    script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+    script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    -->
+
+
+</head>
+
+<body class="sidebar-mini fixed">
+    <div class="wrapper">
+        <!-- Navbar-->
+        <header class="main-header hidden-print"><a class="logo" href="#"></a>
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button--><a class="sidebar-toggle" href="#" data-toggle="offcanvas"></a>
+                <!-- Navbar Right Menu-->
+                <div class="navbar-custom-menu">
+                    <ul class="top-nav">
+                        <!--Notification Menu-->
+                        <li class="dropdown notification-menu"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell-o fa-lg"></i></a>
+                            <ul class="dropdown-menu" id="notification">
+                                <li class="not-head">新着通知が3件あります。</li>
+
+                                <li><a class="media" href="javascript:;"><span class="media-left media-icon"><span class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
+                                <div class="media-body"><span class="block">テスト１のメッセージです。</span><span class="text-muted block">101分前</span></div></a></li>
+
+                                <li><a class="media" href="javascript:;"><span class="media-left media-icon"><span class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x text-danger"></i><i class="fa fa-hdd-o fa-stack-1x fa-inverse"></i></span></span>
+                                <div class="media-body"><span class="block">テスト‘２のメッセージです。</span><span class="text-muted block">101分前</span></div></a></li>
+
+                                <li><a class="media" href="javascript:;"><span class="media-left media-icon"><span class="fa-stack fa-lg"><i class="fa fa-square fa-stack-2x text-success"></i><i class="fa fa-money fa-stack-1x fa-inverse"></i></span></span>
+                                <div class="media-body"><span class="block">テスト３のメッセージです。</span><span class="text-muted block">101分前</span></div></a></li>
+
+                                <li class="not-footer"><a herf="#">すべての通知を既読にする。</a></li>
+                            </ul>
+                        </li>
+                        <!-- User Menu-->
+                        <li class="dropdown top-nav-user"><a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="images/icon/u_20171101142949Penguins.jpg" alt="" class="img-circle"><span>鐘ヶ江孝幸</span></a>
+                            <ul class="dropdown-menu settings-menu">
+                                <li><a href="javascript:;" id="a_profile"><i class="fa fa-user fa-lg"></i> プロフィール編集</a></li>
+                                <li><a href="/accounts/logout"><i class="fa fa-sign-out fa-lg"></i> ログアウト</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Side-Nav-->
+        <aside class="main-sidebar hidden-print">
+            <section class="sidebar">
+                <!-- Sidebar Menu-->
+                <ul class="sidebar-menu">
+                    <li>
+                        <form class="navbar-form" role="search">
+                            <div class="form-group">
+                                <i class="fa fa-search fa-lg"></i>
+                                <input id="txtSearch" type="text" class="form-control" placeholder="ユーザー検索">
+                            </div>
+                            <!--  <button type="submit" class="btn btn-default"><i class="fa fa-search fa-lg"></i></button> -->
+                        </form>
+                    </li>
+                    <li class="add-btn clearfix">
+                        <a href="./chat" class="pull-left text-center"><i class="fa fa-plus" aria-hidden="true"></i> ユーザー追加</a>
+                        <a href="javascript:; " id="a_add_group" class="pull-right text-center"><i class="fa fa-plus" aria-hidden="true"></i> グループ作成</a>
+                    </li>
+
+
+                    <li class="treeview active" id="recent_rooms"><a href="#"><i class="fa fa-thumb-tack unread"></i><span>いつも使う相手</span><i class="fa fa-angle-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="/rooms/chat/14/"><img src="images/icon/user_1_chat_do.jpg" alt="" class="img-circle"/>
+                                <span class="bot-label"></span>ユーザ1</a>
+                            </li>
+                        <!-- </ul>
+
+                        <ul class="treeview-menu"> -->
+                            <li>
+                                <a href="/rooms/chat/16/"><img src="images/icon/g_20171031180419972017Untitled.png" alt="" class="img-circle"/>
+                                <span class="bot-label"></span>ユーザ2</a>
+                            </li>
+                        <!-- </ul>
+
+                        <ul class="treeview-menu"> -->
+                            <li>
+                                <a href="/rooms/chat/15/"><img src="images/icon/g_20171031173715MINHLH4_JLPT Japanese-Language Proficiency Test.png" alt="" class="img-circle"/>
+                                <span class="bot-label"></span>asfsdf</a>
+                            </li>
+                        <!-- </ul>
+
+                        <ul class="treeview-menu"> -->
+                            <li>
+                                <a href="/rooms/chat/17/"><img src="images/icon/g_20171031195059Untitled111.png" alt="" class="img-circle"/>
+                                <span class="bot-label"></span>sdfsd</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+                    <li class="treeview" id="user_rooms"><a href="#"><i class="fa fa-user-circle-o"></i><span>ユーザー</span><i class="fa fa-angle-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="/rooms/chat/14/"><img src="images/icon/user_1_chat_do.jpg" alt="" class="img-circle"/>
+                                <span class="bot-label"></span>ユーザA</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="treeview" id="group_rooms"><a href="#"><i class="fa fa-users"></i><span>グループ</span><i class="fa fa-angle-right"></i></a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="/rooms/chat/16/"><img src="images/icon/g_20171031180419972017Untitled.png" alt="" class="img-circle"/>
+                                <span class="bot-label"></span>グループA</a>
+                            </li>
+                        <!-- </ul>
+
+                        <ul class="treeview-menu"> -->
+                            <li>
+                                <a href="/rooms/chat/15/"><img src="images/icon/g_20171031173715MINHLH4_JLPT Japanese-Language Proficiency Test.png" alt="" class="img-circle"/>
+                                <span class="bot-label"></span>asfsdf</a>
+                            </li>
+                        <!-- </ul>
+
+                        <ul class="treeview-menu"> -->
+                            <li>
+                                <a href="/rooms/chat/17/"><img src="images/icon/g_20171031195059Untitled111.png" alt="" class="img-circle"/>
+                                <span class="bot-label"></span>sdfsd</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
+
+                    <li class="treeview side-bot" id="chatbot_rooms"><a href="#"><i class="fa fa-comments-o"></i><span>Bot</span><i class="fa fa-angle-right"></i></a>
+
+
+
+
+                    </li>
+
+                </ul>
+            </section>
+        </aside>
+        <div class="content-wrapper">
+
+            <div class="modal fade" id="modal_add_group" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="/rooms/add_group" method="post" class="form-horizontal" enctype="multipart/form-data">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+                                <h4 class="modal-title">グループ作成</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">名称</label>
+                                    <div class="col-md-10">
+                                        <input type="text" name="name" class="form-control"></input>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">アイコン</label>
+
+                                    <div class="col-md-10">
+                                        <input type="file" id="group_icon" name="group_icon" class="form-control"></input>
+                                        </br>
+                                        <div class="icon" id="icon"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                                <button type="submit" class="btn btn-primary">追加</button>
+                            </div>
+                            <input name="next" type="hidden" value="/rooms/">
+                            <input type='hidden' name='csrfmiddlewaretoken' value='nFX8TfQiW8feIkew251miUEbfTwD8FBVStUSquyTUXlQFLJjAqTZ91AKoADxabm1'
+                            />
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="modal_profile" tabindex="-1" xmlns="http://www.w3.org/1999/html">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form action="/rooms/profile/" method="post" class="form-horizontal" enctype="multipart/form-data">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+                                <h4 class="modal-title">プロフィール編集</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">ユーザID</label>
+                                    <div class="col-md-8">
+                                        <input id="txtUserID" class="form-control" name="username" type="text" value="chatdo" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">メールアドレス</label>
+                                    <div class="col-md-8">
+                                        <input id="txtMail" class="form-control" name="email" type="email" value="super@chatdo.com" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">性</label>
+                                    <div class="col-md-8">
+                                        <input id="txtName" class="form-control" name="last_name" type="text" value="鐘ヶ江" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">名</label>
+                                    <div class="col-md-8">
+                                        <input id="txtFirstName" name="first_name" class="form-control" type="text" value="孝幸" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">パスワード</label>
+                                    <div class="col-md-8">
+                                        <input id="txtPassword" name="password" class="form-control" type="password" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">パスワード確認</label>
+                                    <div class="col-md-8">
+                                        <input id="txtPasswordConf" class="form-control" type="password" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">アイコン
+                                        </label>
+                                    <div class="col-md-8">
+                                        <input id="imgIcon" name="icon" class="form-control" type="file" />
+                                        <br/>
+                                        <img src="images/icon/u_20171101142949Penguins.jpg" class="img-circle img-48" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <center>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                                    <button type="submit" class="btn btn-primary">追加</button>
+                                </center>
+                            </div>
+                            <input name="next" type="hidden" value="/rooms/">
+                            <input type='hidden' name='csrfmiddlewaretoken' value='nFX8TfQiW8feIkew251miUEbfTwD8FBVStUSquyTUXlQFLJjAqTZ91AKoADxabm1'
+                            />
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-title">
+                <div>
+                    <h1 class="pull-left">モーダル</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <button type="button" id="sampleButton" class="btn btn-primary">モーダル呼び出し</button>
+                    </div>
+                    <!-- card -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <input type="hidden" id="time_stamp" value="2017-11-01 15:28:20">
+    <input type="hidden" id="open_room_id" value="">
+    <!-- Javascripts-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/pace.min.js"></script>
+    <script src="js/csrf_token_ajax.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        $("#btn").click(function () {
+            $.ajax({
+                'url': "/rooms/ajax",
+                'type': 'POST',
+                'data': { 'time_stamp': $('#time_stamp').val(), 'open_room_id': $('#open_room_id').val() },
+                'dataType': 'xml',
+                'success': function (response) { setData(response); }
+            });
+        });
+
+        var xs = new XMLSerializer();
+        function getInnerHtml(response, name) {
+            temp = response.getElementsByTagName(name)[0]
+            return xs.serializeToString(temp).replace("<" + name + ">", "").replace("</" + name + ">", "").trim()
+        }
+
+        function setData(response) {
+            //set time_stamp
+            $('#time_stamp').val(getInnerHtml(response, "time_stamp"));
+
+            //set notifications
+            $('#notification').append(getInnerHtml(response, "notification"));
+
+            //set rooms -recent-
+            $('#recent_rooms').append(getInnerHtml(response, "recent_rooms"));
+
+            //set rooms -user-
+            $('#user_rooms').append(getInnerHtml(response, "user_rooms"));
+
+            //set rooms -group-
+            $('#group_rooms').append(getInnerHtml(response, "group_rooms"));
+
+            //set rooms -chat_bot-
+            $('#chatbot_rooms').append(getInnerHtml(response, "chatbot_rooms"));
+
+            //only when open_room_id is still open
+            if ($('#open_room_id').val() === getInnerHtml(response, "open_room_id")) {
+                //set messages(conversation)
+                $('#conversation').append(getInnerHtml(response, "conversation"));
+                //set members
+                $('#members').append(getInnerHtml(response, "members"));
+            }
+        }
+        // ユーザー検索
+        $(function () {
+            searchUser = function () {
+                var searchText = $(this).val(), // ユーザー検索ボックスに入力された値
+                    targetText;
+
+                $(".treeview-menu li").each(function () {
+                    targetText = $(this).text();
+
+                    // 検索対象となるリストに入力された文字列が存在するかを判定する。
+                    if (targetText.indexOf(searchText) === -1) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                });
+            };
+
+            // searchWordの実行(オートコンプリートにも対応させるためinputイベントにしている)
+            $("#txtSearch").on("input", searchUser);
+        });
+        $(function () {
+            $('#a_add_group').click(function () {
+                $('#modal_add_group').modal();
+            });
+        });
+        $(function () {
+            $('#group_icon').change(function () {
+                files = $("#group_icon").prop("files")[0];
+                var reader = new FileReader();
+                reader.onload = function () {
+                    $("#icon").html("<img src=" + reader.result + " style='width:250px'>");
+                }
+                reader.readAsDataURL(files);
+            });
+        });
+        $(function () {
+            $('#a_profile').click(function () {
+                $('#modal_profile').modal();
+            });
+        });
+    </script>
+
+    <script>
+        $(function () {
+            $('#a_add_group').click(function () {
+                $('#modal_add_group').modal();
+            });
+        });
+    </script>
+
+</body>
+
+</html>
